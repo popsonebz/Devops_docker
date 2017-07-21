@@ -49,6 +49,9 @@ e.g
 # passwd popsonebz
 # ifconfig   -------to check the ip address
 # passwd root
+# nano /etc/ssh/sshd_config
+change the line 
+permitLoginroot yes
 ```
 ### Now you can ssh into the container
 ```ssh popsonebz@0.0.0.0 -p 2222``` or ```ssh popsonebz@172.17.0.2 -p 2222``` or
