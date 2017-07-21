@@ -38,3 +38,18 @@ e.g
 ```docker start abcddadadadedaswf```
 ## If you like to remove the container, stop it first and then remove it
 ```docker rm abcddadadadedaswf```
+
+
+# Install ssh to a running docker container
+```
+# apt-get update && apt-get install -y openssh-server net-tools
+# mkdir /var/run/sshd
+# chmod 0755 /var/run/sshd
+# useradd --create-home --shell /bin/bash --groups sudo popsonebz
+# passwd popsonebz
+# ifconfig   -------to check the ip address
+```
+### Now you can ssh into the container
+```ssh -X popsonebz@172.17.0.2 -p 2222``` **Note** your docker must expose port 22 to other containers and mapp port 22 to your host for the outside world to connect to the container e.g
+
+```docker run -i -t -d -p 2222:22 --expose=22 ubuntu:16.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"```
