@@ -130,3 +130,17 @@ for bucket in response['Buckets']:
 ```
 s3.create_bucket(Bucket='my-bucket')
 ```
+##### updload file
+```
+filename = 'me.txt'
+bucket_name = 'qltrail-lab-265-1500692331'
+s3.upload_file(filename, bucket_name,filename)
+```
+##### check if it is uploaded
+```
+s3 = boto3.resource('s3',aws_access_key_id=access_key,aws_secret_access_key=secret_key)
+bucket = s3.Bucket('qltrail-lab-265-1500692331')
+
+for obj in bucket.objects.filter(Delimiter="/"):
+    print(obj.key)
+````
