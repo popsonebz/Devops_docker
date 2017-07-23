@@ -126,3 +126,4 @@ response = s3.list_buckets()
 for bucket in response['Buckets']:
     print bucket['Name']
 ````
+##### creating Bucket
