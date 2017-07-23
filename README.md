@@ -143,4 +143,7 @@ bucket = s3.Bucket('qltrail-lab-265-1500692331')
 
 for obj in bucket.objects.filter(Delimiter="/"):
     print(obj.key)
-````
+
+for obj in bucket.objects.filter(Prefix='lab'): #return keys starting with 'lab'
+    print(obj.key)
+```
