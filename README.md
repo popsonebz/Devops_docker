@@ -127,3 +127,6 @@ for bucket in response['Buckets']:
     print bucket['Name']
 ````
 ##### creating Bucket
+```
+s3.create_bucket(Bucket='my-bucket')
+```
