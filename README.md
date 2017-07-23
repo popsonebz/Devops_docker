@@ -118,8 +118,10 @@ access_key='your_access_key'
 secret_key='your_secret_key'
 
 s3 = boto3.client('s3',aws_access_key_id=access_key,aws_secret_access_key=secret_key)
-
-response = s3.list_buckets()
+```
+##### listing all bucket in your s3
+```
+response = s3.list_buckets() 
 
 for bucket in response['Buckets']:
     print bucket['Name']
