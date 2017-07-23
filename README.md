@@ -146,4 +146,7 @@ for obj in bucket.objects.filter(Delimiter="/"):
 
 for obj in bucket.objects.filter(Prefix='lab'): #return keys starting with 'lab'
     print(obj.key)
+
+for obj in bucket.objects.filter(): #return every possible key
+    print(obj.key)
 ```
