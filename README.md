@@ -190,3 +190,12 @@ $s3cmd put --recursive s3FolderTest s3://qltrail-lab-265-xxxxxxxx/test/ #this wi
 $s3cmd put --recursive s3FolderTest/ s3://qltrail-lab-265-xxxxxxxx/test/ 
 this will dump the content of s3FolderTest into the folder 'test'
 ```
+- using sync command
+
+sync first checks the list and details of the files already present at the destination, compares with the local files and only uploads the ones that either are not present remotely or have a different size or md5 checksum.
+```
+$touch s3FolderTest/file3.txt
+$s3cmd sync s3FolderTest s3://qltrail-lab-265-xxxxxxxxx/test/
+upload: 's3FolderTest/file4.txt' -> 's3://qltrail-lab-265-1500692331/test/s3FolderTest/file3.txt'  [1 of 1]
+ 0 of 0     0% in    0s     0.00 B/s  done
+```
