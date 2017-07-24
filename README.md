@@ -177,6 +177,10 @@ $touch s3FolderTest/file2.txt
 $s3cmd ls
 2017-07-22 02:58  s3://qltrail-lab-265-xxxxxxxx
 ```
+- uploading a single file with s3cmd but renaming it on s3
+```
+$s3cmd put file1.txt s3://s3tools-demo/my_renamed_file.txt
+```
 - to sync a complete folder 
 ```
 $s3cmd put --recursive s3FolderTest s3://qltrail-lab-265-xxxxxxxx/test/ #this will create 'test' folder if it does not exist. inside it, it will store create a folder called s3FolderTest with its content
