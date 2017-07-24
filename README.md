@@ -150,3 +150,39 @@ for obj in bucket.objects.filter(Prefix='lab'): #return keys starting with 'lab'
 for obj in bucket.objects.filter(): #return every possible key
     print(obj.key)
 ```
+##### sync local folder to s3
+- install s3cmd to your local server
+
+```
+$sudo apt-get install s3cmd
+```
+- configure s3cmd with your credential
+```
+$s3cmd --configure
+Access Key: AXXXXXXXXXX
+Secret Key: AXXXXXXXXXXXXXXXXXXXXXXXXX
+Default Region [US]:
+Encryption password: fisosososossososo
+Path to GPG program [/usr/bin/gpg]:
+Use HTTPS protocol [Yes]:
+```
+- create your folder and add content locally
+```
+$mkdir s3FolderTest
+$touch s3FolderTest/file1.txt
+$touch s3FolderTest/file2.txt
+```
+- list all bucket path in s3
+```
+$s3cmd ls
+2017-07-22 02:58  s3://qltrail-lab-265-xxxxxxxx
+```
+- to sync a complete folder 
+```
+$s3cmd put --recursive s3FolderTest s3://qltrail-lab-265-xxxxxxxx/test/ #this will create 'test' folder if it does not exist. inside it, it will store create a folder called s3FolderTest with its content
+```
+- **note** if you specify s3FolderTest/ as below:
+```
+$s3cmd put --recursive s3FolderTest/ s3://qltrail-lab-265-xxxxxxxx/test/ 
+this will dump the content of s3FolderTest into the folder 'test'
+```
